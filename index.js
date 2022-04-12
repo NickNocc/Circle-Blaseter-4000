@@ -50,9 +50,19 @@ const player = new Player(x, y, 30, "blue");
 
 const projectiles = [];
 
+const projectile = new Projectile(
+  canvas.width / 2,
+  canvas.height / 2,
+  "green",
+  {
+    x: 1,
+    y: 1,
+  }
+);
+
 function animate() {
   requestAnimationFrame(animate);
-  context.clearRect(0, 0, canvas.width, canvas.height)
+  context.clearRect(0, 0, canvas.width, canvas.height);
   player.draw();
   projectiles.forEach((projectile) => {
     projectile.update();
@@ -64,11 +74,11 @@ addEventListener("click", (e) => {
     e.clientY - canvas.height / 2,
     e.clientX - canvas.width / 2
   );
-  
+
   const velocity = {
-      x: Math.cos(angle),
-      y: Math.sin(angle),
-  }
+    x: Math.cos(angle),
+    y: Math.sin(angle),
+  };
 
   console.log(angle);
 
